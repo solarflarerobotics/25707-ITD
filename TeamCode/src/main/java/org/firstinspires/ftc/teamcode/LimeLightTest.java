@@ -16,6 +16,8 @@ import java.util.List;
 
 @TeleOp
 public class LimeLightTest extends LinearOpMode {
+    double tx;
+    double ty;
     private Limelight3A limelight;
     @Override
     public void runOpMode() {
@@ -30,7 +32,11 @@ public class LimeLightTest extends LinearOpMode {
         while (opModeIsActive()){
 
             LLResult result = limelight.getLatestResult();
-
+            tx=result.getTx();
+            ty=result.getTy();
+            telemetry.addData("tx", tx);
+            telemetry.addData("ty", ty);
+            telemetry.update();
             if (result != null){
                 if (result.isValid()){
                     telemetry.addData("tag", result);
