@@ -101,7 +101,7 @@ public class FieldCentricMecanumTeleOpTets extends LinearOpMode{
 
         // Target position in ticks for linear slides, will be used later
         // Set slides Kp value
-        double Kp = 0.015;
+        double Kp = 0.015; //Dani explaining why we need a dynamic Kp
 
         double useTimer = 0; //0 = don't use timer calculation 1 = use timer for PID
 
