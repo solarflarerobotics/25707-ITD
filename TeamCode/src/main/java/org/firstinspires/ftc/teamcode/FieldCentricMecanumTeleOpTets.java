@@ -235,6 +235,7 @@ public class FieldCentricMecanumTeleOpTets extends LinearOpMode {
                     buckettarget -= 15;
                 }
             }
+            wristpos=gamepad2.left_stick_x/2+0.5;
             int thingy=0;
             if(gamepad2.a){thingy=1;} else{thingy=0;}
             claw.setPosition(thingy);
