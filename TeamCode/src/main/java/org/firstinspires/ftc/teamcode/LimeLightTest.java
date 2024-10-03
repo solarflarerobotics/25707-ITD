@@ -24,7 +24,7 @@ public class LimeLightTest extends LinearOpMode {
 
         limelight = hardwareMap.get(Limelight3A.class, "limelight");
         telemetry.setMsTransmissionInterval(11);
-        limelight.pipelineSwitch(0);
+        limelight.pipelineSwitch(7);
         waitForStart();
 
         limelight.start();
@@ -32,22 +32,14 @@ public class LimeLightTest extends LinearOpMode {
         while (opModeIsActive()){
 
             LLResult result = limelight.getLatestResult();
-            tx=result.getTx();
-            ty=result.getTy();
-            telemetry.addData("tx", tx);
-            telemetry.addData("ty", ty);
-            telemetry.update();
-            if (result != null){
-                if (result.isValid()){
-                    telemetry.addData("tag", result);
-                    telemetry.update();
-                }
-                else{
-                    telemetry.addLine("no tag :(");
-                    telemetry.update();
-                }
-            }
 
+            if (result.isValid()){
+                tx=result.getTx();
+                ty=result.getTy();
+                telemetry.addData("tx", tx);
+                telemetry.addData("ty", ty);
+                telemetry.update();
+            }
         }
     }
 }
